@@ -160,6 +160,13 @@
     padding-left: 17px;
   }
 
+  .job-left-block {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+  }
+
   .job-title {
     color: var(--ink);
     text-decoration: none;
@@ -167,6 +174,11 @@
     font-weight: 500;
   }
   .job-title:hover { text-decoration: underline; }
+
+  .job-location {
+    color: var(--ink-soft);
+    font-size: 12.5px;
+  }
 
   .job-right {
     display: flex;
@@ -283,7 +295,10 @@ async function load() {
           .sort((a, b) => (a.is_new === b.is_new) ? 0 : a.is_new ? -1 : 1)
           .map(job => `
             <li class="job ${job.is_new ? 'is-new' : ''}">
-              <a class="job-title" href="${job.link}" target="_blank" rel="noopener">${escapeHtml(job.title)}</a>
+              <div class="job-left-block">
+                <a class="job-title" href="${job.link}" target="_blank" rel="noopener">${escapeHtml(job.title)}</a>
+                ${job.location ? `<span class="job-location">${escapeHtml(job.location)}</span>` : ''}
+              </div>
               <div class="job-right">
                 ${job.is_new ? '<span class="new-tag">New</span>' : ''}
                 <span class="job-date">since ${new Date(job.first_seen).toLocaleDateString()}</span>
