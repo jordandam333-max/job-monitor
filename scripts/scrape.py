@@ -91,11 +91,21 @@ def scrape_site(site):
         if not title:
             continue
 
+        location = None
+        location_selector = site.get("location_selector")
+        if location_selector:
+            location_el = el.select_one(location_selector)
+            if location_el:
+                raw = location_el.get_text(strip=True)
+                # Strip a leading "Label:" prefix if present, e.g. "Location: Warrington" -> "Warrington"
+                location = raw.split(":", 1)[1].strip() if ":" in raw else raw
+
         link = resolve_link(site.get("base_url", site["url"]), href)
         jobs.append({
             "id": make_job_id(title, link),
             "title": title,
             "link": link,
+            "location": location,
         })
 
     return jobs
@@ -146,12 +156,14 @@ def main():
             updated_state_for_site[jid] = {
                 "title": job["title"],
                 "link": job["link"],
+                "location": job.get("location"),
                 "first_seen": first_seen,
             }
 
             job_record = {
                 "title": job["title"],
                 "link": job["link"],
+                "location": job.get("location"),
                 "first_seen": first_seen,
                 "is_new": is_new,
             }
