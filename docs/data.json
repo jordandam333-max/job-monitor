@@ -1,159 +1,98 @@
 {
-  "last_run": "2026-09-08T10:12:39.703773Z",
+  "last_run": "2026-09-08T10:36:08.751016Z",
   "sites": [
     {
       "name": "Rubix ME - Metering",
       "url": "https://rubixme.co.uk/jobs/page/1/?s&job_industry=metering&town&lat&lng&radius",
-      "checked_at": "2026-09-08T10:12:39.703773Z",
+      "checked_at": "2026-09-08T10:36:08.751016Z",
       "status": "ok",
       "jobs": [
         {
           "title": "Dual Fuel Engineer",
           "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-warrington/",
+          "location": "Warrington",
           "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
+          "is_new": false
         },
         {
           "title": "Dual Fuel Engineer",
           "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-uxbridge/",
+          "location": "Uxbridge",
           "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
+          "is_new": false
         },
         {
           "title": "Dual Fuel Engineer",
           "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-twickenham/",
+          "location": "Twickenham",
           "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
+          "is_new": false
         },
         {
           "title": "Dual Fuel Engineer",
           "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-truro/",
+          "location": "Truro",
           "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
+          "is_new": false
         },
         {
           "title": "Dual Fuel Engineer",
           "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-torquay/",
+          "location": "Torquay",
           "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
+          "is_new": false
         },
         {
           "title": "Dual Fuel Engineer",
           "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-taunton/",
+          "location": "Taunton",
           "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
+          "is_new": false
         },
         {
           "title": "Dual Fuel Engineer",
           "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-swansea/",
+          "location": "Swansea",
           "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
+          "is_new": false
         },
         {
           "title": "Dual Fuel Engineer",
           "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-stockport/",
+          "location": "Stockport",
           "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
+          "is_new": false
         },
         {
           "title": "Dual Fuel Engineer",
           "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-southampton/",
+          "location": "Southampton",
           "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
+          "is_new": false
         },
         {
           "title": "Dual Fuel Engineer",
           "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-slough/",
+          "location": "Slough",
           "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
+          "is_new": false
         },
         {
           "title": "Dual Fuel Engineer",
           "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-reading/",
+          "location": "Reading",
           "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
+          "is_new": false
         },
         {
           "title": "Dual Fuel Engineer",
           "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-portsmouth/",
+          "location": "Portsmouth",
           "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
+          "is_new": false
         }
       ],
-      "new_jobs": [
-        {
-          "title": "Dual Fuel Engineer",
-          "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-warrington/",
-          "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
-        },
-        {
-          "title": "Dual Fuel Engineer",
-          "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-uxbridge/",
-          "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
-        },
-        {
-          "title": "Dual Fuel Engineer",
-          "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-twickenham/",
-          "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
-        },
-        {
-          "title": "Dual Fuel Engineer",
-          "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-truro/",
-          "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
-        },
-        {
-          "title": "Dual Fuel Engineer",
-          "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-torquay/",
-          "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
-        },
-        {
-          "title": "Dual Fuel Engineer",
-          "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-taunton/",
-          "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
-        },
-        {
-          "title": "Dual Fuel Engineer",
-          "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-swansea/",
-          "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
-        },
-        {
-          "title": "Dual Fuel Engineer",
-          "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-stockport/",
-          "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
-        },
-        {
-          "title": "Dual Fuel Engineer",
-          "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-southampton/",
-          "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
-        },
-        {
-          "title": "Dual Fuel Engineer",
-          "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-slough/",
-          "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
-        },
-        {
-          "title": "Dual Fuel Engineer",
-          "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-reading/",
-          "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
-        },
-        {
-          "title": "Dual Fuel Engineer",
-          "link": "https://rubixme.co.uk/jobs/dual-fuel-engineer-portsmouth/",
-          "first_seen": "2026-09-08T10:12:39.703773Z",
-          "is_new": true
-        }
-      ]
+      "new_jobs": []
     }
   ]
 }
