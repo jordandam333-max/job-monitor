@@ -1,0 +1,36 @@
+name: Job Monitor
+
+on:
+  schedule:
+    # Runs every 30 minutes. Adjust the cron expression to change frequency.
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}  # lets you trigger a run manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  check-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Run scraper
+        run: python3 scripts/scrape.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "job-monitor-bot"
+          git config user.email "actions@github.com"
+          git add data/state.json docs/data.json
+          git diff --quiet --cached || git commit -m "Update job listings [automated]"
+          git push

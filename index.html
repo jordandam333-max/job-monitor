@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lookout — hiring signal tracker</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --ink: #1B2A3C;
+    --ink-soft: #5B6472;
+    --paper: #F5F6F8;
+    --card: #FFFFFF;
+    --line: #E1E4E9;
+    --signal: #C7791A;
+    --signal-soft: #FBEEDD;
+    --error: #B3432B;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 24px;
+  }
+
+  h1 {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 700;
+    font-size: 36px;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .subtitle {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0;
+    max-width: 40ch;
+    line-height: 1.5;
+  }
+
+  .meta {
+    text-align: right;
+    color: var(--ink-soft);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .meta strong {
+    color: var(--ink);
+    display: block;
+    font-size: 14px;
+  }
+
+  .summary-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--signal-soft);
+    border: 1px solid #F0D8B0;
+    color: #8A5312;
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+
+  .summary-banner.quiet {
+    background: var(--card);
+    border-color: var(--line);
+    color: var(--ink-soft);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--signal);
+    flex-shrink: 0;
+  }
+
+  .quiet .dot { background: var(--ink-soft); }
+
+  .site {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-header a {
+    color: var(--ink-soft);
+    font-size: 13px;
+    text-decoration: none;
+  }
+  .site-header a:hover { text-decoration: underline; }
+
+  .site-name {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .site-count {
+    color: var(--ink-soft);
+    font-size: 13px;
+    margin-left: 8px;
+    font-weight: 400;
+  }
+
+  .job-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .job {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .job:last-child { border-bottom: none; }
+
+  .job.is-new {
+    background: linear-gradient(to right, var(--signal-soft), transparent 60%);
+    border-left: 3px solid var(--signal);
+    padding-left: 17px;
+  }
+
+  .job-title {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 500;
+  }
+  .job-title:hover { text-decoration: underline; }
+
+  .job-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .new-tag {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--signal);
+    background: var(--signal-soft);
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  .job-date {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .empty-jobs {
+    padding: 20px;
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+
+  .error-state {
+    padding: 16px 20px;
+    color: var(--error);
+    font-size: 14px;
+    background: #FBEBE7;
+  }
+
+  footer {
+    margin-top: 40px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  footer code {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 12.5px;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Lookout</h1>
+        <p class="subtitle">Tracking new roles posted across the sites you're watching.</p>
+      </div>
+      <div class="meta" id="meta"></div>
+    </header>
+
+    <div id="banner"></div>
+    <div id="sites"></div>
+
+    <footer id="footer"></footer>
+  </div>
+
+<script>
+async function load() {
+  const sitesEl = document.getElementById('sites');
+  const metaEl = document.getElementById('meta');
+  const bannerEl = document.getElementById('banner');
+  const footerEl = document.getElementById('footer');
+
+  let data;
+  try {
+    const res = await fetch('data.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('no data yet');
+    data = await res.json();
+  } catch (e) {
+    sitesEl.innerHTML = '<div class="error-state">No data yet — this shows up after the monitor runs for the first time. If you just set this up, trigger the workflow manually from the Actions tab in GitHub.</div>';
+    return;
+  }
+
+  const checkedDate = new Date(data.last_run);
+  metaEl.innerHTML = `<strong>Last checked</strong>${checkedDate.toLocaleString()}`;
+
+  let totalNew = 0;
+  data.sites.forEach(s => totalNew += (s.new_jobs || []).length);
+
+  if (totalNew > 0) {
+    bannerEl.innerHTML = `<div class="summary-banner"><span class="dot"></span>${totalNew} new role${totalNew === 1 ? '' : 's'} since last check</div>`;
+  } else {
+    bannerEl.innerHTML = `<div class="summary-banner quiet"><span class="dot"></span>No new roles since last check</div>`;
+  }
+
+  sitesEl.innerHTML = data.sites.map(site => {
+    if (site.status === 'error') {
+      return `
+        <div class="site">
+          <div class="site-header">
+            <div><span class="site-name">${escapeHtml(site.name)}</span></div>
+            <a href="${site.url}" target="_blank" rel="noopener">visit site</a>
+          </div>
+          <div class="error-state">Couldn't reach this site on the last check. It will retry automatically.</div>
+        </div>`;
+    }
+
+    const jobs = site.jobs || [];
+    const jobsHtml = jobs.length
+      ? jobs
+          .slice()
+          .sort((a, b) => (a.is_new === b.is_new) ? 0 : a.is_new ? -1 : 1)
+          .map(job => `
+            <li class="job ${job.is_new ? 'is-new' : ''}">
+              <a class="job-title" href="${job.link}" target="_blank" rel="noopener">${escapeHtml(job.title)}</a>
+              <div class="job-right">
+                ${job.is_new ? '<span class="new-tag">New</span>' : ''}
+                <span class="job-date">since ${new Date(job.first_seen).toLocaleDateString()}</span>
+              </div>
+            </li>`).join('')
+      : '<div class="empty-jobs">No roles listed right now.</div>';
+
+    return `
+      <div class="site">
+        <div class="site-header">
+          <div><span class="site-name">${escapeHtml(site.name)}</span><span class="site-count">${jobs.length} open</span></div>
+          <a href="${site.url}" target="_blank" rel="noopener">visit site</a>
+        </div>
+        <ul class="job-list">${jobsHtml}</ul>
+      </div>`;
+  }).join('');
+
+  footerEl.innerHTML = `Checks run automatically on a schedule. To check right now, go to the repo's <code>Actions</code> tab and run the "Job Monitor" workflow manually.`;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+load();
+</script>
+</body>
+</html>
