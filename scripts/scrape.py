@@ -77,7 +77,13 @@ def scrape_site(site):
     jobs = []
     for el in job_elements:
         title_el = el.select_one(site["title_selector"])
-        link_el = el.select_one(site["link_selector"])
+
+        # Some sites wrap the whole listing in the <a> tag itself, rather than
+        # nesting a separate link inside it. Use link_selector: "self" for those.
+        if site.get("link_selector") == "self":
+            link_el = el
+        else:
+            link_el = el.select_one(site["link_selector"])
 
         title = title_el.get_text(strip=True) if title_el else None
         href = link_el.get(site.get("link_attr", "href")) if link_el else None
